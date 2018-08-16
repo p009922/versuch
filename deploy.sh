@@ -124,7 +124,7 @@ fi
 
 cd "$DEPLOYMENT_TARGET"
 
-#4. Run TSC
+#4. Run TSC 
 
 TSC="$DEPLOYMENT_TARGET/node_modules/typescript/bin/tsc"
 
