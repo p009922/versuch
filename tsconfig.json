@@ -7,7 +7,6 @@
         "noUnusedLocals": true,
         "removeComments": true,
         "sourceMap": true,
-        "outDir": "./dist",
         "target": "es2017"
     },
     "include": [

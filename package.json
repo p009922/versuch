@@ -4,7 +4,14 @@
   "description": "Mock REST-Server to support Approval-Client Process",
   "main": "server.js",
   "scripts": {
-    "postinstall": "node_modules/typescript/bin/tsc"
+    "doc": "api-doc-generator --title Approval REST Mock-Server --input src/server.ts --output public",
+    "clean": "rm -fr dist && rm -fr node_modules",
+    "start": "nodemon -e ts --watch src --exec \"npm run build && node dist/server.js || exit 1\"",
+    "build": "rm -fr dist && npm run lint && tsc --outDir dist && npm run-script doc",
+    "lint": "tslint --project tsconfig.json",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "node_modules\typescript\bin\tsc -p",
+    "tsc": "tsc -project tsconfig.json"
   },
   "author": "Henner Harnisch",
   "license": "ISC",
@@ -16,9 +23,6 @@
     "typescript": "^2.9.2"
   },
   "dependencies": {
-    "@types/express": "^4.16.0",
-    "@types/node": "^10.9.3",
-    "nodemon": "^1.18.4",
     "api-doc-generator": "0.0.2",
     "cors": "^2.8.4",
     "express": "^4.16.3",
