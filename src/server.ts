@@ -10,8 +10,9 @@ const cors = require('cors');
 const config = require('./configurations/config');
 
 // config parameter:
-const PORT = config.port || process.env.port || 3000;
+const PORT = process.env.port || config.port  || 443;
 let SECURIRTY_AUTH = config.auth || process.env.auth || true;
+// As stated in Azure docs there are two opened ports for web apps: 80 and 443. By default Azure will set a port to environment variable process.env.PORT, 
 
 const app = express();
 app.use(express.static('public'));  // for static html sites
