@@ -1,4 +1,4 @@
 module.exports = {
     secret : "heymynameismohamedaymen",
-    port: 8081
+    port: 8080
 };
