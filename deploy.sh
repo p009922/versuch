@@ -77,7 +77,7 @@ selectNodeVersion () {
       NODE_EXE=`cat "$DEPLOYMENT_TEMP/__nodeVersion.tmp"`
       exitWithMessageOnError "getting node version failed"
     fi
-    
+
     if [[ -e "$DEPLOYMENT_TEMP/__npmVersion.tmp" ]]; then
       NPM_JS_PATH=`cat "$DEPLOYMENT_TEMP/__npmVersion.tmp"`
       exitWithMessageOnError "getting npm version failed"
@@ -110,6 +110,7 @@ fi
 selectNodeVersion
 
 # 3. Install npm packages
+echo "TRY: Running $NPM_CMD install --production"
 if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
   cd "$DEPLOYMENT_TARGET"
   echo "Running $NPM_CMD install --production"
@@ -124,7 +125,7 @@ fi
 
 cd "$DEPLOYMENT_TARGET"
 
-#4. Run TSC 
+#4. Run TSC
 
 TSC="$DEPLOYMENT_TARGET/node_modules/typescript/bin/tsc"
 
