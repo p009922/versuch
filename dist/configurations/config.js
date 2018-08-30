@@ -1,5 +1,5 @@
 module.exports = {
     secret: "heymynameismohamedaymen",
-    port: 8888
+    port: 8080
 };
 //# sourceMappingURL=config.js.map
