@@ -50,7 +50,7 @@ function toEpochInSeconds(dateStr) {
     if (groups === null) {
         throw new Error(`Expected date format 'DD.MM.YYYY hh:mm:ss' but found ${dateStr}`);
     }
-    const [day, month, year, hours, minutes] = groups.slice(1, 6).map(str => Number.parseInt(str));
+    const [day, month, year, hours, minutes] = groups.slice(1, 6).map(str => Number.parseInt(str, 10));
     const epochInMillis = new Date(year, month - 1, day, hours, minutes).getTime();
     return Math.floor(epochInMillis / 1000);
 }

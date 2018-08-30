@@ -27,10 +27,10 @@
                 <a href="#approvals">approvals</a>
               </li>
               <li>
-                <a href="#README !">README !</a>
+                <a href="#authentication">authentication</a>
               </li>
               <li>
-                <a href="#security">security</a>
+                <a href="#test">test</a>
               </li>
             </ul>
           </div>
@@ -57,22 +57,24 @@
             <div class="endpoints">
               <div class="endpoint get">
                 <div class="address toggle-description">
-                  <span class="label">get</span><span class="url">/approvals</span>
+                  <span class="label">get</span><span class="url">/api/approvals</span>
                 </div>
 
                 <div class="description hidden">
                   <p>Get a list of all approval-workflow items</p>
+<p>secured (put a valid 'access-token' in your Headers request section)</p>
 
                 </div>
               </div>
               <div class="endpoint get">
                 <div class="address toggle-description">
-                  <span class="label">get</span><span class="url">/approvals/:id</span>
+                  <span class="label">get</span><span class="url">/api/approvals/:id</span>
                 </div>
 
                 <div class="description hidden">
                   <p>Get details for a certain approval-workflow item<br />
-Identification done via the 'id' (which is currently only a number 1,2,3...)</p>
+Identification done via the 'id' (which is the unique reference-id of the specific approval).</p>
+<p>secured (put a valid 'access-token' in your Headers request section)</p>
 
                   <table>
                     <thead>
@@ -94,12 +96,13 @@ Identification done via the 'id' (which is currently only a number 1,2,3...)</p>
               </div>
               <div class="endpoint post">
                 <div class="address toggle-description">
-                  <span class="label">post</span><span class="url">/approvals/:id/approve</span>
+                  <span class="label">post</span><span class="url">/api/approvals/:id/approve</span>
                 </div>
 
                 <div class="description hidden">
                   <p>Approve a certain approval-workflow item<br />
-Identification done via the 'id' (which is currently only a number 1,2,3...)</p>
+Identification done via the 'id' (which is the unique reference-id of the specific approval).</p>
+<p>secured (put a valid 'access-token' in your Headers request section)</p>
 
                   <table>
                     <thead>
@@ -121,39 +124,13 @@ Identification done via the 'id' (which is currently only a number 1,2,3...)</p>
               </div>
               <div class="endpoint post">
                 <div class="address toggle-description">
-                  <span class="label">post</span><span class="url">/approvals/:id/reject</span>
+                  <span class="label">post</span><span class="url">/api/approvals/:id/reject</span>
                 </div>
 
                 <div class="description hidden">
                   <p>Reject a certain approval-workflow item<br />
-Identification done via the 'id' (which is currently only a number 1,2,3...)</p>
-
-                  <table>
-                    <thead>
-                    <tr>
-                      <th>Parameter</th>
-                      <th>Type</th>
-                      <th>Required</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                      <td>id</td>
-                      <td>string</td>
-                      <td>true</td>
-                    </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-              <div class="endpoint post">
-                <div class="address toggle-description">
-                  <span class="label">post</span><span class="url">/approvals/:id/return</span>
-                </div>
-
-                <div class="description hidden">
-                  <p>Return a certain approval-workflow item<br />
-Identification done via the 'id' (which is currently only a number 1,2,3...)</p>
+Identification done via the 'id' (which is the unique reference-id of the specific approval).</p>
+<p>secured (put a valid 'access-token' in your Headers request section)</p>
 
                   <table>
                     <thead>
@@ -184,39 +161,7 @@ Identification done via the 'id' (which is currently only a number 1,2,3...)</p>
           <div class="section">
             <div class="section-header">
               <div class="section-title">
-                <a name="README !" class="section-toggle">README !</a>
-              </div>
-
-              <div class="actions">
-                <a class="section-toggle">Show/hide</a>
-                <a class="hide-description">List Operations</a>
-                <a class="show-description">Expand Operations</a>
-              </div>
-            </div>
-
-            <div class="endpoints">
-              <div class="endpoint ">
-                <div class="address toggle-description">
-                  <span class="label"></span><span class="url"></span>
-                </div>
-
-                <div class="description hidden">
-                  <p>Mock-Server ....</p>
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="container">
-      <div class="row">
-        <div class="column">
-          <div class="section">
-            <div class="section-header">
-              <div class="section-title">
-                <a name="security" class="section-toggle">security</a>
+                <a name="authentication" class="section-toggle">authentication</a>
               </div>
 
               <div class="actions">
@@ -229,37 +174,70 @@ Identification done via the 'id' (which is currently only a number 1,2,3...)</p>
             <div class="endpoints">
               <div class="endpoint post">
                 <div class="address toggle-description">
-                  <span class="label">post</span><span class="url">/authenticate/:user</span>
+                  <span class="label">post</span><span class="url">/authenticate</span>
                 </div>
 
                 <div class="description hidden">
-                  <p>Login process via user and password<br />
-Returns a session-token to use...</p>
+                  <p>request to authenticate with test-users...</p>
 <ul>
-<li></li>
+<li>any test-user will be accepted, if mail format, but the password needs to be &quot;123&quot;</li>
+<li>if password is NOT &quot;123&quot; access will be defined</li>
 </ul>
 
-                  <table>
-                    <thead>
-                    <tr>
-                      <th>Parameter</th>
-                      <th>Type</th>
-                      <th>Required</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                      <td>login</td>
-                      <td>string</td>
-                      <td>true</td>
-                    </tr>
-                    <tr>
-                      <td>password</td>
-                      <td>string</td>
-                      <td>true</td>
-                    </tr>
-                    </tbody>
-                  </table>
+                </div>
+              </div>
+              <div class="endpoint get">
+                <div class="address toggle-description">
+                  <span class="label">get</span><span class="url">/api/authenticationstatus</span>
+                </div>
+
+                <div class="description hidden">
+                  <p>Gets the status of the server and authentication<br />
+Use this to check also the authentication status</p>
+
+                </div>
+              </div>
+              <div class="endpoint post">
+                <div class="address toggle-description">
+                  <span class="label">post</span><span class="url">/logout</span>
+                </div>
+
+                <div class="description hidden">
+                  <p>request to logout (invalidate JWT token)...</p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="container">
+      <div class="row">
+        <div class="column">
+          <div class="section">
+            <div class="section-header">
+              <div class="section-title">
+                <a name="test" class="section-toggle">test</a>
+              </div>
+
+              <div class="actions">
+                <a class="section-toggle">Show/hide</a>
+                <a class="hide-description">List Operations</a>
+                <a class="show-description">Expand Operations</a>
+              </div>
+            </div>
+
+            <div class="endpoints">
+              <div class="endpoint post">
+                <div class="address toggle-description">
+                  <span class="label">post</span><span class="url">/test/init</span>
+                </div>
+
+                <div class="description hidden">
+                  <p>init = reset data of testing...<br />
+init?false =  reeset data of testing and switch off security</p>
+
                 </div>
               </div>
             </div>
