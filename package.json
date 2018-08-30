@@ -10,7 +10,8 @@
     "build": "rm -fr dist && npm run lint && tsc --outDir dist && npm run-script doc",
     "lint": "tslint --project tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "node_modules\typescript\bin\tsc -p"
+    "postinstall": "node_modules\typescript\bin\tsc -p",
+    "tsc": "tsc -project tsconfig.json"
   },
   "author": "Henner Harnisch",
   "license": "ISC",
